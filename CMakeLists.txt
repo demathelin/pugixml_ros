@@ -96,6 +96,13 @@ set(versioned-dir $<$<BOOL:${PUGIXML_USE_VERSIONED_LIBDIR}>:/pugixml-${PROJECT_V
 
 set(libs)
 
+find_package(catkin)
+catkin_package(
+  LIBRARIES pugixml
+  INCLUDE_DIRS src
+
+)
+
 if (BUILD_SHARED_LIBS)
   add_library(pugixml-shared SHARED
     ${PROJECT_SOURCE_DIR}/scripts/pugixml_dll.rc
